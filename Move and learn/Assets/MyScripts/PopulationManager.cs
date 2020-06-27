@@ -16,7 +16,7 @@ public class PopulationManager : MonoBehaviour
     void OnGUI()
     {
         guiStyle.fontSize = 30;
-        guiStyle.normal.textColor = Color.white;
+        guiStyle.normal.textColor = Color.cyan;
         GUI.BeginGroup(new Rect(10, 10, 250, 150));
         GUI.Box(new Rect(0, 0, 140, 140), "Stats", guiStyle);
         GUI.Label(new Rect(10, 25, 200, 30), "Generation: " + generation, guiStyle);
@@ -80,7 +80,7 @@ public class PopulationManager : MonoBehaviour
         List<GameObject> newPopulation = new List<GameObject>();
         //get rid of unfit objects
 
-        List<GameObject> sortedList = population.OrderByDescending(o => o.GetComponent<Brain>().timeAlive).ToList();
+        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().timeAlive).ToList();
         population.Clear();
 
         //breed only the most fit half of the total population
