@@ -9,6 +9,8 @@ public class Brain : MonoBehaviour
     public int DNAlength = 1;
     public float timeAlive;
     public DNA dna;
+    public float distanceTravelled;
+    Vector3 startPos;
 
     private ThirdPersonCharacter m_Character;
     private Vector3 m_Move;
@@ -37,6 +39,7 @@ public class Brain : MonoBehaviour
         m_Character = GetComponent<ThirdPersonCharacter>();
         timeAlive = 0;
         alive = true;
+        startPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -65,6 +68,7 @@ public class Brain : MonoBehaviour
         if(alive)
         {
             timeAlive += Time.deltaTime;
+            distanceTravelled = Vector3.Distance(this.transform.position, startPos);
         }
     }
 }

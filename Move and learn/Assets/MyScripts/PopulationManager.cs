@@ -80,7 +80,7 @@ public class PopulationManager : MonoBehaviour
         List<GameObject> newPopulation = new List<GameObject>();
         //get rid of unfit objects
 
-        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().timeAlive).ToList();
+        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().distanceTravelled).ToList();
         population.Clear();
 
         //breed only the most fit half of the total population
